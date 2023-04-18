@@ -10,7 +10,7 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log',],
     'modules' => [],
     'components' => [
         'request' => [
@@ -42,8 +42,34 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'product/index' => 'product/index',
+                'product/update/<slug:[\w\-]+>' => 'product/update',
+                'product/view/<slug:[\w\-]+>' => 'product/view',
+                'product/delete/<slug:[\w\-]+>' => 'product/delete',
+
+                'product/set-image/<slug:[\w\-]+>' => 'product/set-image',
+                'product/set-color/<slug:[\w\-]+>' => 'product/set-color',
+                'product/set-form-factor/<slug:[\w\-]+>' => 'product/set-form-factor',
             ],
         ],
+
+//        'urlManagerFrontend' => [
+//            'class' => 'yii\web\urlManager',
+//            'baseUrl' => 'http://products.frontend',
+//            'enablePrettyUrl' => true,
+//            'showScriptName' => false,
+//            'rules' => [
+//            ],
+////            'rules' => require(__DIR__ . '../frontend/routes.php'),
+//        ],
+
+//        'view' => [
+//            'theme' => [
+//                'pathMap' => [
+//                    '@app/views' => '@vendor/hail812/yii2-adminlte3/src/views'
+//                ],
+//            ],
+//        ],
 
     ],
     'params' => $params,

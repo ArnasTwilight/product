@@ -2,6 +2,10 @@
 
 namespace backend\controllers;
 
+use app\models\Color;
+use app\models\FormFactor;
+use app\models\Product;
+use app\models\User;
 use common\models\LoginForm;
 use Yii;
 use yii\filters\VerbFilter;
@@ -62,7 +66,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index', [
+            'products' => Product::countProduct(),
+            'colors' => Color::countColor(),
+            'formFactors' => FormFactor::countFormFactor(),
+            'users' => User::countUser(),
+        ]);
     }
 
     /**
