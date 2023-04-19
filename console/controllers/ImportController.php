@@ -6,7 +6,6 @@ use app\models\Color;
 use app\models\FormFactor;
 use app\models\Product;
 use common\models\User;
-use yii\base\BaseObject;
 use yii\console\Controller;
 
 class ImportController extends Controller
@@ -80,6 +79,7 @@ class ImportController extends Controller
         $user->username = $data['username'];
         $user->email = $data['email'];
         $user->status = $data['status'];
+        $user->roles = $data['roles'];
         $user->setPassword($data['password']);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
@@ -122,15 +122,21 @@ class ImportController extends Controller
     private function getDataFormFactor()
     {
         $data[]['title'] = 'ATX';
-        $data[]['title'] = 'e-ATX';
+        $data[]['title'] = 'LPX';
+        $data[]['title'] = 'NLX';
 
         return $data;
     }
 
     private function getDataColor()
     {
-        $data[]['title'] = 'Blue';
         $data[]['title'] = 'Red';
+        $data[]['title'] = 'Orange';
+        $data[]['title'] = 'Yellow';
+        $data[]['title'] = 'Green';
+        $data[]['title'] = 'Blue';
+        $data[]['title'] = 'Navy';
+        $data[]['title'] = 'Violet';
 
         return $data;
     }
@@ -141,6 +147,7 @@ class ImportController extends Controller
         $data['email'] = 'Admin@mail.com';
         $data['password'] = 'admin123123';
         $data['status'] = '10';
+        $data['roles'] = 'admin';
 
         return $data;
     }
