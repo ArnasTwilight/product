@@ -43,7 +43,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'product/index' => 'product/index',
-                'product/view/<slug:[\w\-]+>' => 'product/view',
+                'product/<slug:[\w\-]+>' => 'product/view',
 
                 'product/<slug:[\w\-]+>/form-factor/<id:\d+>' => 'product/form-factor',
                 'product/<slug:[\w\-]+>/color/<id:\d+>' => 'product/color',
