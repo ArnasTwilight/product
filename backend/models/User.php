@@ -70,6 +70,6 @@ class User extends \yii\db\ActiveRecord
      */
     public static function countUser()
     {
-        return count(Product::find()->all());
+        return count(User::find()->all());
     }
 }

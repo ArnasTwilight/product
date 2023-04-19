@@ -5,7 +5,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
             <a href="<?= \yii\helpers\Url::toRoute(['product/index']) ?>">
                 <?= \hail812\adminlte\widgets\InfoBox::widget([
                     'text' => 'Products',
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 ]) ?>
             </a>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
             <a href="<?= \yii\helpers\Url::toRoute(['color/index']) ?>">
                 <?= \hail812\adminlte\widgets\InfoBox::widget([
                     'text' => 'Colors',
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 ]) ?>
             </a>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
             <a href="<?= \yii\helpers\Url::toRoute(['form-factor/index']) ?>">
                 <?= \hail812\adminlte\widgets\InfoBox::widget([
                     'text' => 'Form Factor',
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'] = [['label' => $this->title]];
                 ]) ?>
             </a>
         </div>
-        <div class="col-lg-12 col-md-6 col-sm-6 col-12">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
             <a href="<?= \yii\helpers\Url::toRoute(['user/index']) ?>">
                 <?= \hail812\adminlte\widgets\InfoBox::widget([
                     'text' => 'User',

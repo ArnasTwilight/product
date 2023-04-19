@@ -1,0 +1,152 @@
+body {
+    background: url('../image/bg.png') no-repeat center center;
+    min-height: 100%;
+    background-size: cover;
+}
+
+.main-text {
+    font-size: 5rem;
+    text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+.main-link {
+    padding: 8px 32px;
+    border-radius: 5px;
+    display: inline-block;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+.main-center {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 45%;
+    transform: translate(0, -45%);
+    width: 630px;
+}
+
+.opacity-bg {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.products-container {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product {
+    padding: 1rem;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+.product__image {
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.product__image img {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.product__title {
+    text-align: center;
+    overflow: hidden;
+}
+
+.product__title a {
+    color: white;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.product__price {
+    color: white;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 1.5rem;
+}
+
+.product:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.product__title a:hover {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 1);
+}
+
+.main-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.product-single {
+    padding: 1rem;
+}
+
+.product-single__image {
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.product-single__image img {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.product-single__title {
+    color: white;
+    font-size: 1.4rem;
+}
+
+.product-single__price {
+    color: white;
+    font-weight: lighter;
+    font-size: 1.5rem;
+}
+
+.product-single__text {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.product-single__modifier {
+    color: white;
+}
+
+.colors {
+    margin: 0 0 0 1rem;
+    list-style-type: none;
+}
+
+.colors li:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.text-mod {
+    font-size: 1.1rem;
+}
+
+.ff-link {
+    color: white;
+}
+
+.ff-link:hover {
+    color: gray;
+}
+
+.color-link:hover {
+    color: white;
+}

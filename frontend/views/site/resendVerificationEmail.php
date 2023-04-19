@@ -13,10 +13,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-resend-verification-email">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out your email. A verification email will be sent there.</p>
+    <p class="text-white text-shadow">Please fill out your email. A verification email will be sent there.</p>
 
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-5 text-white text-shadow">
             <?php $form = ActiveForm::begin(['id' => 'resend-verification-email-form']); ?>
 
             <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>

@@ -32,9 +32,17 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],
+                        'allow' => true,
+                        'matchCallback' => function ($rule, $action) {
+                            return !\Yii::$app->user->isGuest
+                                && \Yii::$app->user->identity->roles === 'admin';
+                        },
                     ],
                 ],
             ],

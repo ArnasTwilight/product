@@ -4,9 +4,10 @@ namespace backend\controllers;
 
 use app\models\User;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -21,6 +22,29 @@ class UserController extends Controller
         return array_merge(
             parent::behaviors(),
             [
+                'access' => [
+                    'class' => AccessControl::class,
+                    'rules' => [
+                        [
+                            'actions' => ['login', 'error'],
+                            'allow' => true,
+                        ],
+                        [
+                            'actions' => [
+                                'index',
+                                'create',
+                                'view',
+                                'update',
+                                'delete'
+                            ],
+                            'allow' => true,
+                            'matchCallback' => function ($rule, $action) {
+                                return !\Yii::$app->user->isGuest
+                                    && \Yii::$app->user->identity->roles === 'admin';
+                            },
+                        ],
+                    ],
+                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
