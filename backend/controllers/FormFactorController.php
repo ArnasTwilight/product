@@ -2,17 +2,15 @@
 
 namespace backend\controllers;
 
-use app\models\FormFactor;
+use common\models\FormFactor;
 use yii\data\ActiveDataProvider;
-use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 /**
  * FormFactorController implements the CRUD actions for FormFactor model.
  */
-class FormFactorController extends Controller
+class FormFactorController extends BaseController
 {
     /**
      * @inheritDoc
@@ -22,29 +20,6 @@ class FormFactorController extends Controller
         return array_merge(
             parent::behaviors(),
             [
-                'access' => [
-                    'class' => AccessControl::class,
-                    'rules' => [
-                        [
-                            'actions' => ['login', 'error'],
-                            'allow' => true,
-                        ],
-                        [
-                            'actions' => [
-                                'index',
-                                'create',
-                                'view',
-                                'update',
-                                'delete'
-                            ],
-                            'allow' => true,
-                            'matchCallback' => function ($rule, $action) {
-                                return !\Yii::$app->user->isGuest
-                                    && \Yii::$app->user->identity->roles === 'admin';
-                            },
-                        ],
-                    ],
-                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [

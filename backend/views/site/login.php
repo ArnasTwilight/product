@@ -1,5 +1,7 @@
 <?php
+
 use yii\helpers\Html;
+
 ?>
 <div class="card col-lg-6 m-auto">
     <div class="card-body login-card-body">
@@ -7,7 +9,7 @@ use yii\helpers\Html;
 
         <?php $form = \yii\bootstrap4\ActiveForm::begin(['id' => 'login-form']) ?>
 
-        <?= $form->field($model,'username', [
+        <?= $form->field($model, 'username', [
             'options' => ['class' => 'form-group has-feedback'],
 
             'template' => '{beginWrapper}{input}{error}{endWrapper}',
@@ -27,8 +29,9 @@ use yii\helpers\Html;
         <?= $form->field($model, 'rememberMe')->checkbox([
             'template' => '<div class="icheck-primary">{input}{label}</div>',
             'labelOptions' => [
-                'class' => ''
+                'class' => 'mx-1'
             ],
+            'class' => '',
             'uncheck' => null
         ]) ?>
 

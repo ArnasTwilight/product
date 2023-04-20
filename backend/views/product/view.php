@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var app\models\Product $model */
+/** @var common\models\Product $model */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
@@ -61,6 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'created_at',
+            'updated_at',
         ],
     ]) ?>
 

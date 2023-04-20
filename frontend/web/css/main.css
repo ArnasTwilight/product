@@ -1,5 +1,5 @@
 body {
-    background: url('../image/bg.png') no-repeat center center;
+    background: url('../image/bg.jpg') no-repeat center center;
     min-height: 100%;
     background-size: cover;
 }
@@ -45,7 +45,7 @@ body {
 .product {
     padding: 1rem;
     width: 200px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgb(255, 255, 255);
     border-radius: 5px;
 }
 
@@ -56,7 +56,6 @@ body {
 }
 
 .product__image img {
-    border: 1px solid rgba(0, 0, 0, 0.1);
     width: 100%;
 }
 
@@ -66,20 +65,19 @@ body {
 }
 
 .product__title a {
-    color: white;
+    color: #000000;
     text-align: center;
     font-size: 1.4rem;
 }
 
 .product__price {
-    color: white;
     text-align: center;
     font-weight: lighter;
     font-size: 1.5rem;
 }
 
 .product:hover {
-    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1);
 }
 
 .product__title a:hover {
@@ -91,6 +89,8 @@ body {
 }
 
 .product-single {
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
     padding: 1rem;
 }
 
@@ -100,35 +100,34 @@ body {
 }
 
 .product-single__image img {
-    border: 1px solid rgba(0, 0, 0, 0.05);
     width: 100%;
 }
 
 .product-single__title {
-    color: white;
     font-size: 1.4rem;
 }
 
 .product-single__price {
-    color: white;
     font-weight: lighter;
     font-size: 1.5rem;
 }
 
 .product-single__text {
-    background: rgba(0, 0, 0, 0.5);
     padding: 1rem;
-    color: white;
     font-size: 1.2rem;
 }
 
 .product-single__modifier {
-    color: white;
 }
 
 .colors {
     margin: 0 0 0 1rem;
     list-style-type: none;
+}
+
+.colors__item {
+    display: flex;
+    align-items: center;
 }
 
 .colors li:not(:last-child) {
@@ -139,14 +138,91 @@ body {
     font-size: 1.1rem;
 }
 
-.ff-link {
-    color: white;
+.mod-link {
+    color: #000000;
 }
 
-.ff-link:hover {
-    color: gray;
+.mod-link:hover {
+    color: #3c92ff;
 }
 
-.color-link:hover {
-    color: white;
+.square-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 5px;
+    margin-right: 0.2rem;
+}
+
+.Red {
+    background: #ff0000;
+}
+
+.Orange {
+    background: #ff9800;
+}
+
+.Yellow {
+    background: #fff100;
+}
+
+.Green {
+    background: #25ff00;
+}
+
+.Blue {
+    background: #00ffea;
+}
+
+.Navy {
+    background: #0037ff;
+}
+
+.Violet {
+    background: #9500ff;
+}
+
+.Black {
+    background: #000000;
+}
+
+.White {
+    background: #ffffff;
+}
+
+.single-item {
+    display: flex;
+    align-items: center;
+}
+
+.pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination a {
+    background: white;
+    padding: 0.6rem;
+    margin: 0.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.pagination a:hover {
+    color: #3c92ff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.active a {
+    color: #3c92ff;
+!important;
+}
+
+.disabled span {
+    background: white;
+    padding: 0.6rem;
+    margin: 0.2rem;
+    border-radius: 5px;
 }

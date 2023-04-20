@@ -2,17 +2,13 @@
 
 namespace frontend\controllers;
 
-use app\models\Color;
-use app\models\FormFactor;
-use app\models\ImageUpload;
-use app\models\Product;
-use Yii;
+use common\models\Color;
+use common\models\Product;
 use yii\data\ActiveDataProvider;
+use yii\data\Pagination;
 use yii\filters\VerbFilter;
-use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -44,10 +40,21 @@ class ProductController extends Controller
      */
     public function actionIndex()
     {
-        $products = Product::find()->orderBy('price DESC')->all();
+        $dataProvider = new ActiveDataProvider([
+            'query' =>  Product::find()->orderBy('price DESC')->with(['colors', 'formFactor']),
+            'pagination' => [
+                'pageSize' => 1
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'price' => SORT_DESC,
+                ]
+            ],
+        ]);
 
         return $this->render('index', [
-            'products' => $products,
+            'products' => $dataProvider->getModels(),
+            'pages' => $dataProvider->getPagination(),
         ]);
     }
 

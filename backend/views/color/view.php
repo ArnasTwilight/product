@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var app\models\Color $model */
+/** @var common\models\Color $model */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Colors', 'url' => ['index']];

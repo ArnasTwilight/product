@@ -50,16 +50,32 @@ class LoginForm extends Model
     }
 
     /**
-     * Logs in a user using the provided username and password.
+     * Logs the user into the Frontend using the provided username and password.
      *
      * @return bool whether the user is logged in successfully
      */
-    public function login()
+    public function loginFrontend()
     {
         if ($this->validate()) {
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
-        
+
+        return false;
+    }
+
+    /**
+     * Logs the user into the Backend using the provided username and password.
+     *
+     * @return bool whether the user is logged in successfully
+     */
+    public function loginBackend()
+    {
+        if ($this->validate() && $this->user->getIsAdmin()) {
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+        } else {
+            $this->addError('username', 'This user is not authorized for administration');
+        }
+
         return false;
     }
 
@@ -76,4 +92,5 @@ class LoginForm extends Model
 
         return $this->_user;
     }
+
 }

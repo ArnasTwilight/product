@@ -2,9 +2,9 @@
 
 namespace console\controllers;
 
-use app\models\Color;
-use app\models\FormFactor;
-use app\models\Product;
+use common\models\Color;
+use common\models\FormFactor;
+use common\models\Product;
 use common\models\User;
 use yii\console\Controller;
 

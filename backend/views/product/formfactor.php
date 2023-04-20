@@ -4,9 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var app\models\Product $model */
-/** @var app\models\Product $selectedFormFactor */
-/** @var app\models\Product $formFactors */
+/** @var common\models\Product $model */
+/** @var common\models\Product $selectedFormFactor */
+/** @var common\models\Product $formFactors */
 
 $this->title = 'Update Product: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var app\models\User $model */
+/** @var common\models\User $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
@@ -29,6 +29,8 @@ use yii\widgets\ActiveForm;
 <!--    --><?//= $form->field($model, 'updated_at')->textInput() ?>
 
 <!--    --><?//= $form->field($model, 'verification_token')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'roles')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

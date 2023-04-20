@@ -1,10 +1,9 @@
 <?php
 
-use app\models\User;
-use yii\helpers\Html;
-use yii\helpers\Url;
+use common\models\User;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /** @var yii\web\View $this */
 /** @var yii\data\ActiveDataProvider $dataProvider */
@@ -15,8 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="user-index">
 
     <div class="col-lg-12">
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success mb-1']) ?>
-
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'columns' => [

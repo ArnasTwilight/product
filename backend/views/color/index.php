@@ -1,6 +1,6 @@
 <?php
 
-use app\models\Color;
+use common\models\Color;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;

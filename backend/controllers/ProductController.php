@@ -2,23 +2,21 @@
 
 namespace backend\controllers;
 
-use app\models\Color;
-use app\models\FormFactor;
-use app\models\ImageUpload;
-use app\models\Product;
+use common\models\Color;
+use common\models\FormFactor;
+use common\models\ImageUpload;
+use common\models\Product;
 use Yii;
 use yii\data\ActiveDataProvider;
-use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
 
 /**
  * ProductController implements the CRUD actions for Product model.
  */
-class ProductController extends Controller
+class ProductController extends BaseController
 {
     /**
      * @inheritDoc
@@ -28,32 +26,6 @@ class ProductController extends Controller
         return array_merge(
             parent::behaviors(),
             [
-                'access' => [
-                    'class' => AccessControl::class,
-                    'rules' => [
-                        [
-                            'actions' => ['login', 'error'],
-                            'allow' => true,
-                        ],
-                        [
-                            'actions' => [
-                                'index',
-                                'create',
-                                'view',
-                                'update',
-                                'delete',
-                                'set-image',
-                                'set-color',
-                                'set-form-factor'
-                            ],
-                            'allow' => true,
-                            'matchCallback' => function ($rule, $action) {
-                                return !\Yii::$app->user->isGuest
-                                    && \Yii::$app->user->identity->roles === 'admin';
-                            },
-                        ],
-                    ],
-                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
@@ -133,6 +105,8 @@ class ProductController extends Controller
     public function actionUpdate($slug)
     {
         $model = $this->findModel($slug);
+
+        $model->updated_at = date('Y-m-d H:i:s');
 
         if ($this->request->isPost) {
             $model->old_price = $model->oldAttributes['price'];

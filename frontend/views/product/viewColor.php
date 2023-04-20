@@ -1,7 +1,7 @@
 <?php
 
 /** @var yii\web\View $this */
-/** @var app\models\Color $model */
+/** @var common\models\Color $model */
 
 $this->title = 'Product | Color';
 ?>
@@ -11,8 +11,8 @@ $this->title = 'Product | Color';
 
         <div class="product-single__description p-2">
 
-            <div class="product-single__title text-shadow">
-                <?= $model->title ?>
+            <div class="product-single__title single-item">
+                <div class="square-color <?= $model->title ?>"></div><?= $model->title ?>
             </div>
 
         </div>

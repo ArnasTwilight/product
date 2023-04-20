@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var app\models\FormFactor $model */
+/** @var common\models\FormFactor $model */
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Form Factors', 'url' => ['index']];

@@ -2,17 +2,15 @@
 
 namespace backend\controllers;
 
-use app\models\User;
+use common\models\User;
 use yii\data\ActiveDataProvider;
-use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
 /**
  * UserController implements the CRUD actions for User model.
  */
-class UserController extends Controller
+class UserController extends BaseController
 {
     /**
      * @inheritDoc
@@ -22,29 +20,6 @@ class UserController extends Controller
         return array_merge(
             parent::behaviors(),
             [
-                'access' => [
-                    'class' => AccessControl::class,
-                    'rules' => [
-                        [
-                            'actions' => ['login', 'error'],
-                            'allow' => true,
-                        ],
-                        [
-                            'actions' => [
-                                'index',
-                                'create',
-                                'view',
-                                'update',
-                                'delete'
-                            ],
-                            'allow' => true,
-                            'matchCallback' => function ($rule, $action) {
-                                return !\Yii::$app->user->isGuest
-                                    && \Yii::$app->user->identity->roles === 'admin';
-                            },
-                        ],
-                    ],
-                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
@@ -122,6 +97,22 @@ class UserController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
+    {
+        $user = $this->findModel($id);
+        $user->status = 0;
+        $user->save(false);
+
+        return $this->redirect(['index']);
+    }
+
+    /**
+     * Deletes PERMANENTLY an existing User model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param int $id ID
+     * @return \yii\web\Response
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionDestroy($id)
     {
         $this->findModel($id)->delete();
 

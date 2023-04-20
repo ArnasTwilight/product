@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var app\models\FormFactor $model */
+/** @var common\models\FormFactor $model */
 
 $this->title = 'Update Form Factor: ' . $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Form Factors', 'url' => ['index']];

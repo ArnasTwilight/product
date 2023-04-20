@@ -1,6 +1,6 @@
 <?php
 
-use app\models\FormFactor;
+use common\models\FormFactor;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;

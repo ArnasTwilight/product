@@ -1,7 +1,7 @@
 <?php
 
 /** @var yii\web\View $this */
-/** @var app\models\FormFactor $model */
+/** @var common\models\FormFactor $model */
 
 $this->title = 'Product | Form Factor';
 ?>
@@ -11,7 +11,7 @@ $this->title = 'Product | Form Factor';
 
         <div class="product-single__description p-2">
 
-            <div class="product-single__title text-shadow">
+            <div class="product-single__title">
                 <?= $model->title ?>
             </div>
 
