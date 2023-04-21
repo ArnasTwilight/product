@@ -71,22 +71,28 @@ class ImportController extends Controller
         }
     }
 
-    private function actionUser()
+    public function actionUser()
     {
         $data = $this->getDataUser();
 
-        $user = new User();
-        $user->username = $data['username'];
-        $user->email = $data['email'];
-        $user->status = $data['status'];
-        $user->roles = $data['roles'];
-        $user->setPassword($data['password']);
-        $user->generateAuthKey();
-        $user->generateEmailVerificationToken();
+        foreach ($data as $item)
+        {
+            $user = new User();
+            $user->username = $item['username'];
+            $user->email = $item['email'];
+            $user->status = $item['status'];
+            $user->roles = $item['roles'];
+            $user->setPassword($item['password']);
+            $user->generateAuthKey();
+            $user->generateEmailVerificationToken();
 
-        if (!$user->save()){
-            print_r('User ' . 'error');
+            if (!$user->save()){
+                print_r($user->username . ' error');
+                break;
+            }
         }
+
+
     }
 
     private function getDataProduct()
@@ -143,11 +149,29 @@ class ImportController extends Controller
 
     private function getDataUser()
     {
-        $data['username'] = 'Admin';
-        $data['email'] = 'Admin@mail.com';
-        $data['password'] = 'admin123123';
-        $data['status'] = '10';
-        $data['roles'] = 'admin';
+        $data[0]['username'] = 'Admin';
+        $data[0]['email'] = 'Admin@mail.com';
+        $data[0]['password'] = 'admin123123';
+        $data[0]['status'] = '10';
+        $data[0]['roles'] = 'admin';
+
+        $data[1]['username'] = 'AdminDel';
+        $data[1]['email'] = 'AdminDel@mail.com';
+        $data[1]['password'] = 'admin123123';
+        $data[1]['status'] = '0';
+        $data[1]['roles'] = 'admin';
+
+        $data[2]['username'] = 'UserOff';
+        $data[2]['email'] = 'UserOff@mail.com';
+        $data[2]['password'] = 'admin123123';
+        $data[2]['status'] = '9';
+        $data[2]['roles'] = '';
+
+        $data[3]['username'] = 'UserOn';
+        $data[3]['email'] = 'UserOn@mail.com';
+        $data[3]['password'] = 'admin123123';
+        $data[3]['status'] = '10';
+        $data[3]['roles'] = '';
 
         return $data;
     }

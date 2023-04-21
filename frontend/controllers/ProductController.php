@@ -43,7 +43,8 @@ class ProductController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' =>  Product::find()->orderBy('price DESC')->with(['colors', 'formFactor']),
             'pagination' => [
-                'pageSize' => 1
+                'pageSize' => 2,
+                'pageSizeParam' => false
             ],
             'sort' => [
                 'defaultOrder' => [

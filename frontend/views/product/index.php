@@ -45,19 +45,31 @@ $this->title = 'Products';
                     <?= $product->price . '$' ?>
                 </div>
 
-                <p class="m-0">
-                    <a href="<?= Url::toRoute(['product/form-factor', 'slug' => $product->url, 'id' => $product->formFactor->id]) ?>"
-                       class="mod-link text-decoration-none"><?= $product->formFactor->title ?></a>
-                </p>
+                <?php if (!empty($product->formFactor->title)): ?>
+                    <p class="m-0">
+                        Form Factor:
+                        <a href="<?= Url::toRoute(['product/form-factor', 'slug' => $product->url, 'id' => $product->formFactor->id]) ?>"
+                           class="mod-link text-decoration-none"><?= $product->formFactor->title ?></a>
+                    </p>
+                <?php endif; ?>
 
-                <ul class="">
-                    <?php foreach ($product->colors as $color): ?>
-                        <li class="">
-                            <a href="<?= Url::toRoute(['product/color', 'slug' => $product->url, 'id' => $color->id]) ?>"
-                               class="mod-link text-decoration-none"><?= $color->title ?></a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+                <?php if (!empty($product->colors)): ?>
+                    <p class="m-0">
+                        Colors:
+                    </p>
+
+                    <ul class="index-colors p-1">
+                        <?php foreach ($product->colors as $color): ?>
+                            <li class="index-colors__item">
+                                <div class="square-color <?= $color->title ?>"></div>
+                                <a href="<?= Url::toRoute(['product/color', 'slug' => $product->url, 'id' => $color->id]) ?>"
+                                   class="mod-link text-decoration-none"><?= $color->title ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+
+                <?php endif; ?>
+
             </div>
         <?php endforeach; ?>
     </div>

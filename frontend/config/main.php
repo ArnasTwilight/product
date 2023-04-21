@@ -42,9 +42,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'product/index' => 'product/index',
+                'product/page/<page:\d+>' => 'product/index',
                 'product/<slug:[\w\-]+>' => 'product/view',
-
                 'product/<slug:[\w\-]+>/form-factor/<id:\d+>' => 'product/form-factor',
                 'product/<slug:[\w\-]+>/color/<id:\d+>' => 'product/color',
             ],
