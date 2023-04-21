@@ -71,7 +71,7 @@ class ImportController extends Controller
         }
     }
 
-    public function actionUser()
+    private function actionUser()
     {
         $data = $this->getDataUser();
 
